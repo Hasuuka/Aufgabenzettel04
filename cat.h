@@ -10,10 +10,10 @@ class Cat : public DomesticAnimal
 public:
     Cat(string name, bool fluffyness, double meouwPower, DomesticAnimal* m_friend);
 
-    virtual ~Cat(){
-
+    ~Cat(){
 
     }
+
     virtual void toJSON();
 
 protected:

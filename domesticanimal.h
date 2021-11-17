@@ -7,6 +7,7 @@ class DomesticAnimal
 {
 public:
     DomesticAnimal(string name, bool fluffyness);
+
     virtual ~DomesticAnimal(){
 
     }

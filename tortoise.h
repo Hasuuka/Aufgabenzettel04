@@ -9,10 +9,9 @@ class Tortoise : public DomesticAnimal
 public:
     Tortoise(string name, bool fluffyness, int shellThickness, DomesticAnimal* m_friend);
 
-    virtual ~Tortoise(){
+    ~Tortoise(){
 
     }
-
 
     virtual void toJSON();
 

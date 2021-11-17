@@ -9,10 +9,10 @@ Tortoise::Tortoise(string name, bool fluffyness, int shellThickness, DomesticAni
     this->m_friend = m_friend;
 }
 
-int counter=0;
+int counter2=0;
 
 void Tortoise::toJSON(){
-    counter++;
+    counter2++;
     cout << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
          << "shell thickness: " << this->m_shellThickness << endl;
     if(this->m_friend == NULL){
@@ -21,7 +21,7 @@ void Tortoise::toJSON(){
     }
     else
     {
-        if(counter <2)
+        if(counter2 <2)
         {
             cout << "friend: ";
             m_friend->toJSON();

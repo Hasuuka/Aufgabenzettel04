@@ -8,7 +8,8 @@ class Dog : public DomesticAnimal
 {
 public:
     Dog(string name, bool fluffyness, double senseOfSmell, DomesticAnimal* m_friend);
-    virtual ~Dog(){
+
+    ~Dog(){
 
     }
 

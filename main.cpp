@@ -4,7 +4,6 @@
 #include <tortoise.h>
 #include <cat.h>
 
-
 using namespace std;
 
 int main()
@@ -16,10 +15,12 @@ int main()
     p_tortoise->setFriend(p_dog);
 
     p_dog->toJSON();
-/*
+    p_cat->toJSON();
+    p_tortoise->toJSON();
+
     delete p_dog;
     delete p_tortoise;
-    delete p_cat;*/
+    delete p_cat;
 
     return 0;
 }
