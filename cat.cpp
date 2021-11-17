@@ -1,5 +1,6 @@
 #include "cat.h"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -11,26 +12,30 @@ Cat::Cat(string name, bool fluffyness, double meouwPower, DomesticAnimal* m_frie
 
 int counter = 0;
 
-void Cat::toJSON(){
-    counter++;
+string Cat::toJSON(){
+    stringstream ss;
+    string output = "";
 
-    cout << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
-         << "meouwpower: " << this->m_meouwPower << endl;
-    if(this->m_friend == NULL){
-        cout << "friend: NULL" << endl;
-        return;
-    }
-    else
-    {
-        if(counter <2)
-        {
-            cout << "friend: ";
-            m_friend->toJSON();
-        }
-        else
-        {
-            cout << "friend already serialised" << endl;
-            return;
-        }
-    }
+   if(counter <1)
+   {
+       ss << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
+            << "meouwpower: " << this->m_meouwPower << endl;
+       if(this->m_friend == NULL){
+           ss << "friend: NULL" << endl;
+           output = ss.str();
+           return output;
+       }
+       else{
+           counter++;
+           ss << "friend: ";
+           ss << m_friend->toJSON();
+       }
+   }
+   else{
+       ss << "friend already serialised" << endl;
+       output = ss.str();
+       return output;
+   }
+   output = ss.str();
+   return output;
 }

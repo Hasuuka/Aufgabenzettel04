@@ -7,6 +7,6 @@ DomesticAnimal::DomesticAnimal(string name, bool fluffyness)
     this->m_fluffyness = fluffyness;
 }
 
-void DomesticAnimal::toJSON(){
+string DomesticAnimal::toJSON(){
 
 }

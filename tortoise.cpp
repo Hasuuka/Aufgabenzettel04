@@ -1,5 +1,6 @@
 #include "tortoise.h"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -11,28 +12,37 @@ Tortoise::Tortoise(string name, bool fluffyness, int shellThickness, DomesticAni
 
 int counter2=0;
 
-void Tortoise::toJSON(){
-    counter2++;
-    cout << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
-         << "shell thickness: " << this->m_shellThickness << endl;
-    if(this->m_friend == NULL){
-        cout << "friend: NULL" << endl;
-        return;
-    }
-    else
-    {
-        if(counter2 <2)
-        {
-            cout << "friend: ";
-            m_friend->toJSON();
+string Tortoise::toJSON(){
+    string output="";
+    stringstream ss;
+
+    if(counter2<1){
+        ss << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
+             << "shell thickness: " << this->m_shellThickness << endl;
+        if(this->m_friend == NULL){
+            ss << "friend: NULL" << endl;
+            output = ss.str();
+            return output;
         }
         else
         {
-            cout << "friend already serialised" << endl;
-            return;
+            counter2++;
+            ss << "friend: ";
+            ss << m_friend->toJSON();
         }
     }
+    else{
+        ss << "friend already serialised" << endl;
+        output = ss.str();
+        return output;
+    }
+    output = ss.str();
+    return output;
 }
+
+
+
+
 
 void Tortoise::setFriend(DomesticAnimal *newFriend)
 {

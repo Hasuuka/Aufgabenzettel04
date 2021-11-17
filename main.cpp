@@ -14,9 +14,9 @@ int main()
 
     p_tortoise->setFriend(p_dog);
 
-    p_dog->toJSON();
-    p_cat->toJSON();
-    p_tortoise->toJSON();
+    cout << p_dog->toJSON()<< endl;
+    //p_cat->toJSON();
+    //p_tortoise->toJSON();
 
     delete p_dog;
     delete p_tortoise;

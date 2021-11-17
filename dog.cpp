@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 Dog::Dog(string name, bool fluffyness, double senseOfSmell, DomesticAnimal* m_friend) : DomesticAnimal(name, fluffyness)
@@ -10,25 +11,34 @@ Dog::Dog(string name, bool fluffyness, double senseOfSmell, DomesticAnimal* m_fr
 
 int counter1 = 0;
 
-void Dog::toJSON(){
-    counter1++;
-    cout << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
-         << "sense of smell: " << this->m_senseOfSmell << endl;
-    if(this->m_friend == NULL){
-        cout << "friend: NULL" << endl;
-        return;
-    }
-    else
+string Dog::toJSON(){
+
+    stringstream ss;
+    string output = "";
+
+    if(counter1<1)
     {
-        if(counter1 <2)
+        ss << "name: " << this->m_name << endl << "fluffyness: " << this->m_fluffyness << endl
+             << "sense of smell: " << this->m_senseOfSmell << endl;
+        if(this->m_friend == NULL)
         {
-            cout << "friend: ";
-            m_friend->toJSON();
+            ss << "friend: NULL" << endl;
+            output = ss.str();
+            return output;
         }
         else
         {
-            cout << "friend already serialised" << endl;
-            return;
+            counter1++;
+            ss << "friend: ";
+            ss << m_friend->toJSON();
         }
     }
+    else
+    {
+        ss << "friend already serialised" << endl;
+        output = ss.str();
+        return output;
+    }
+    output = ss.str();
+    return output;
 }

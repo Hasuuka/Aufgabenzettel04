@@ -12,7 +12,7 @@ public:
 
     }
 
-    virtual void toJSON();
+    virtual string toJSON();
 protected:
     string m_name;
     bool m_fluffyness;

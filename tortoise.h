@@ -13,7 +13,7 @@ public:
 
     }
 
-    virtual void toJSON();
+    virtual string toJSON();
 
     void setFriend(DomesticAnimal *newFriend);
 
